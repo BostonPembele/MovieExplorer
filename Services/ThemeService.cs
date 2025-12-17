@@ -21,7 +21,7 @@ public static class ThemeService
         {
             "Light" => AppTheme.Light,
             "Dark" => AppTheme.Dark,
-            _ => AppTheme.Unspecified // System
+            _ => AppTheme.Unspecified
         };
     }
 
