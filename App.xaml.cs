@@ -1,4 +1,5 @@
-﻿namespace MovieExplorer
+﻿using MovieExplorer.Services;
+namespace MovieExplorer
 {
     public partial class App : Application
     {

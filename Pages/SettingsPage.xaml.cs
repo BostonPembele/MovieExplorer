@@ -9,9 +9,7 @@ public partial class SettingsPage : ContentPage
         InitializeComponent();
 
         ThemePicker.ItemsSource = new List<string> { "System", "Light", "Dark" };
-
-        var saved = ThemeService.GetSavedTheme();
-        ThemePicker.SelectedItem = saved;
+        ThemePicker.SelectedItem = ThemeService.GetSavedTheme();
     }
 
     private void OnThemeChanged(object sender, EventArgs e)

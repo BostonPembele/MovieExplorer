@@ -1,8 +1,10 @@
-﻿namespace MovieExplorer.Services;
+﻿using Microsoft.Maui.Controls;
+
+namespace MovieExplorer.Services;
 
 public static class ThemeService
 {
-    private const string ThemeKey = "app_theme"; // "System" | "Light" | "Dark"
+    private const string ThemeKey = "app_theme";
 
     public static void ApplySavedTheme()
     {
@@ -25,6 +27,8 @@ public static class ThemeService
         };
     }
 
-    public static string GetSavedTheme() =>
-        Preferences.Get(ThemeKey, "System");
+    public static string GetSavedTheme()
+    {
+        return Preferences.Get(ThemeKey, "System");
+    }
 }

@@ -7,7 +7,6 @@
 
     <VerticalStackLayout Padding="12" Spacing="12">
         <Label Text="Appearance" FontSize="18" FontAttributes="Bold" />
-
         <Label Text="Theme" />
         <Picker x:Name="ThemePicker" SelectedIndexChanged="OnThemeChanged" />
     </VerticalStackLayout>
