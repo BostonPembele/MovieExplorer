@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace MovieExplorer.Services;
 
-namespace MovieExplorer.Services
+public static class ThemeService
 {
-    internal class ThemeService
+    private const string ThemeKey = "app_theme"; // "System" | "Light" | "Dark"
+
+    public static void ApplySavedTheme()
     {
+        var saved = Preferences.Get(ThemeKey, "System");
+        ApplyTheme(saved);
     }
-}
