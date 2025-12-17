@@ -64,11 +64,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\" />
-	  <Folder Include="Services\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="Pages\MoviesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

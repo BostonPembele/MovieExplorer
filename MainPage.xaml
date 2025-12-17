@@ -5,23 +5,35 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Movie Explorer">
 
-    <VerticalStackLayout Padding="12" Spacing="10">
+    <Grid Padding="12" RowDefinitions="Auto,Auto,*" RowSpacing="10">
 
-        <Label Text="🎬 Movie Explorer" FontSize="24" HorizontalOptions="Center" />
+        <Label Text="🎬 Movie Explorer"
+               FontSize="24"
+               HorizontalOptions="Center" />
 
-        <Entry x:Name="SearchEntry"
-               Placeholder="Search by title..."
-               TextChanged="OnSearchChanged" />
+        <HorizontalStackLayout Grid.Row="1" Spacing="10">
+            <Entry x:Name="SearchEntry"
+                   Placeholder="Search by title..."
+                   HorizontalOptions="FillAndExpand"
+                   TextChanged="OnSearchChanged" />
 
-        <CollectionView x:Name="MoviesView">
+            <Picker x:Name="GenrePicker"
+                    WidthRequest="140"
+                    Title="Genre"
+                    SelectedIndexChanged="OnGenreChanged"/>
+        </HorizontalStackLayout>
+
+        <CollectionView x:Name="MoviesView" Grid.Row="2" SelectionMode="Single"
+                        SelectionChanged="OnMovieSelected">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame Padding="10" Margin="5">
-                        <HorizontalStackLayout Spacing="10">
+                        <HorizontalStackLayout Spacing="12">
                             <Label Text="{Binding Emoji}" FontSize="28" />
                             <VerticalStackLayout>
                                 <Label Text="{Binding Title}" FontAttributes="Bold" />
                                 <Label Text="{Binding Year}" FontSize="12" />
+                                <Label Text="{Binding GenresDisplay}" FontSize="12" />
                             </VerticalStackLayout>
                         </HorizontalStackLayout>
                     </Frame>
@@ -29,5 +41,5 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>
