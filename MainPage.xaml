@@ -9,36 +9,70 @@
 
         <Label Text="🎬 Movie Explorer"
                FontSize="24"
-               HorizontalOptions="Center" />
+               HorizontalOptions="Center"
+               TextColor="{DynamicResource PrimaryTextColor}" />
 
-        <HorizontalStackLayout Grid.Row="1" Spacing="10">
+        <Grid Grid.Row="1" ColumnDefinitions="*,160" ColumnSpacing="10">
             <Entry x:Name="SearchEntry"
+                   Grid.Column="0"
                    Placeholder="Search by title..."
-                   HorizontalOptions="FillAndExpand"
-                   TextChanged="OnSearchChanged" />
+                   TextChanged="OnSearchChanged"
+                   BackgroundColor="{DynamicResource InputBackgroundColor}"
+                   TextColor="{DynamicResource InputTextColor}"
+                   PlaceholderColor="{DynamicResource PlaceholderTextColor}" />
 
-            <Picker x:Name="GenrePicker"
-                    WidthRequest="140"
-                    Title="Genre"
-                    SelectedIndexChanged="OnGenreChanged"/>
-        </HorizontalStackLayout>
+            <VerticalStackLayout Grid.Column="1" Spacing="4">
+                <Label Text="Genre"
+                       FontSize="12"
+                       TextColor="{DynamicResource SecondaryTextColor}" />
 
-        <CollectionView x:Name="MoviesView" Grid.Row="2" SelectionMode="Single"
+                <Picker x:Name="GenrePicker"
+                        Title="All"
+                        SelectedIndexChanged="OnGenreChanged"
+                        BackgroundColor="{DynamicResource InputBackgroundColor}"
+                        TextColor="{DynamicResource InputTextColor}" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <CollectionView x:Name="MoviesView"
+                        Grid.Row="2"
+                        BackgroundColor="{DynamicResource PageBackgroundColor}"
+                        SelectionMode="Single"
                         SelectionChanged="OnMovieSelected">
+
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Padding="10" Margin="5">
+                    <Border Padding="10"
+                            Margin="5"
+                            BackgroundColor="{DynamicResource CardBackgroundColor}"
+                            Stroke="Transparent"
+                            StrokeThickness="1">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+
                         <HorizontalStackLayout Spacing="12">
-                            <Label Text="{Binding Emoji}" FontSize="28" />
+                            <Label Text="{Binding Emoji}"
+                                   FontSize="28" />
+
                             <VerticalStackLayout>
-                                <Label Text="{Binding Title}" FontAttributes="Bold" />
-                                <Label Text="{Binding Year}" FontSize="12" />
-                                <Label Text="{Binding GenresDisplay}" FontSize="12" />
+                                <Label Text="{Binding Title}"
+                                       FontAttributes="Bold"
+                                       TextColor="{DynamicResource PrimaryTextColor}" />
+
+                                <Label Text="{Binding Year}"
+                                       FontSize="12"
+                                       TextColor="{DynamicResource SecondaryTextColor}" />
+
+                                <Label Text="{Binding GenresDisplay}"
+                                       FontSize="12"
+                                       TextColor="{DynamicResource SecondaryTextColor}" />
                             </VerticalStackLayout>
                         </HorizontalStackLayout>
-                    </Frame>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+
         </CollectionView>
 
     </Grid>
