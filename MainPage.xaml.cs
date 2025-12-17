@@ -13,5 +13,10 @@
         {
 
         }
+
+        private void OnSearchChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
