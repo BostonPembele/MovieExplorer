@@ -8,15 +8,17 @@
     Title="MovieExplorer">
 
     <TabBar>
-        <ShellContent
-            Title="Home"
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Route="MainPage" />
+        <ShellContent Title="Home"
+                      ContentTemplate="{DataTemplate local:MainPage}"
+                      Route="MainPage" />
 
-        <ShellContent
-            Title="Settings"
-            ContentTemplate="{DataTemplate pages:SettingsPage}"
-            Route="SettingsPage" />
+        <ShellContent Title="History"
+                      ContentTemplate="{DataTemplate pages:HistoryPage}"
+                      Route="HistoryPage" />
+
+        <ShellContent Title="Settings"
+                      ContentTemplate="{DataTemplate pages:SettingsPage}"
+                      Route="SettingsPage" />
     </TabBar>
 
 </Shell>

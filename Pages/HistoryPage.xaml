@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MovieExplorer.Pages.HistoryPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="History">
+
+    <Grid Padding="12" RowDefinitions="Auto,*" RowSpacing="10"
+          BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+        <Label Text="Recent activity"
+               FontSize="18"
+               FontAttributes="Bold"
+               TextColor="{DynamicResource PrimaryTextColor}" />
+
+        <CollectionView x:Name="HistoryView" Grid.Row="1"
+                        BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="10"
+                            Margin="5"
+                            BackgroundColor="{DynamicResource CardBackgroundColor}"
+                            Stroke="Transparent">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                            <Label Text="{Binding Emoji}" FontSize="26" VerticalOptions="Start" />
+
+                            <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                <Label Text="{Binding Title}"
+                                       FontAttributes="Bold"
+                                       TextColor="{DynamicResource PrimaryTextColor}" />
+
+                                <Label Text="{Binding Year}"
+                                       FontSize="12"
+                                       TextColor="{DynamicResource SecondaryTextColor}" />
+
+                                <Label Text="{Binding Genres}"
+                                       FontSize="12"
+                                       TextColor="{DynamicResource SecondaryTextColor}" />
+
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="{Binding Action}"
+                                           FontSize="12"
+                                           TextColor="{DynamicResource SecondaryTextColor}" />
+
+                                    <Label Text="{Binding TimestampLocal}"
+                                           FontSize="12"
+                                           TextColor="{DynamicResource SecondaryTextColor}" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>
