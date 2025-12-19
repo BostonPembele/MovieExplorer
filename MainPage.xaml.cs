@@ -21,7 +21,7 @@ public partial class MainPage : ContentPage
         _allMovies = await _movieService.GetMoviesAsync();
 
         var genres = _allMovies
-            .SelectMany(m => m.Genres)
+            .SelectMany(m => m.GenresList)
             .Distinct()
             .OrderBy(g => g)
             .ToList();
@@ -63,7 +63,7 @@ public partial class MainPage : ContentPage
         var query = _allMovies.Where(m =>
         {
             bool matchesTitle = string.IsNullOrWhiteSpace(text) || m.Title.ToLowerInvariant().Contains(text);
-            bool matchesGenre = _selectedGenre == "All" || m.Genres.Contains(_selectedGenre);
+            bool matchesGenre = _selectedGenre == "All" || m.GenresList.Contains(_selectedGenre);
             return matchesTitle && matchesGenre;
         });
 
@@ -88,3 +88,4 @@ public partial class MainPage : ContentPage
         await DisplayAlert(movie.Title, $"{movie.Year}\n{movie.GenresDisplay}", "OK");
     }
 }
+
