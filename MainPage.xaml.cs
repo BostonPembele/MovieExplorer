@@ -78,6 +78,8 @@ public partial class MainPage : ContentPage
         MoviesView.ItemsSource = query.ToList();
     }
 
+    private readonly HistoryService _historyService = new();
+
     private async void OnMovieSelected(object sender, SelectionChangedEventArgs e)
     {
         if (e.CurrentSelection?.FirstOrDefault() is not Movie movie)
@@ -85,7 +87,14 @@ public partial class MainPage : ContentPage
 
         MoviesView.SelectedItem = null;
 
-        await DisplayAlert(movie.Title, $"{movie.Year}\n{movie.GenresDisplay}", "OK");
+        await _historyService.AddAsync(movie, "Viewed");
+
+        await Shell.Current.GoToAsync(nameof(MovieExplorer.Pages.MovieDetailsPage), true,
+            new Dictionary<string, object>
+            {
+            { "Movie", movie }
+            });
     }
+
 }
 
