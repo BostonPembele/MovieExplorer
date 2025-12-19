@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MovieExplorer.Pages.MovieDetailsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Movie Details">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12"
+                             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+            <HorizontalStackLayout Spacing="12">
+                <Label Text="{Binding Emoji}"
+                       FontSize="48"
+                       VerticalOptions="Center" />
+
+                <VerticalStackLayout Spacing="2" VerticalOptions="Center">
+                    <Label Text="{Binding Title}"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="{DynamicResource PrimaryTextColor}" />
+
+                    <Label Text="{Binding Year}"
+                           FontSize="14"
+                           TextColor="{DynamicResource SecondaryTextColor}" />
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+
+            <Border Padding="12"
+                    BackgroundColor="{DynamicResource CardBackgroundColor}"
+                    Stroke="Transparent">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Genres"
+                           FontAttributes="Bold"
+                           TextColor="{DynamicResource PrimaryTextColor}" />
+                    <Label Text="{Binding GenresDisplay}"
+                           TextColor="{DynamicResource SecondaryTextColor}" />
+
+                    <Label Text="Director"
+                           FontAttributes="Bold"
+                           TextColor="{DynamicResource PrimaryTextColor}" />
+                    <Label Text="{Binding Director}"
+                           TextColor="{DynamicResource SecondaryTextColor}" />
+
+                    <Label Text="IMDb Rating"
+                           FontAttributes="Bold"
+                           TextColor="{DynamicResource PrimaryTextColor}" />
+                    <Label Text="{Binding ImdbRating}"
+                           TextColor="{DynamicResource SecondaryTextColor}" />
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
