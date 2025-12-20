@@ -19,6 +19,10 @@
         <ShellContent Title="Settings"
                       ContentTemplate="{DataTemplate pages:SettingsPage}"
                       Route="SettingsPage" />
+
+        <ShellContent Title="Favourites"
+              ContentTemplate="{DataTemplate pages:FavouritesPage}"
+              Route="FavouritesPage" />
     </TabBar>
 
 </Shell>

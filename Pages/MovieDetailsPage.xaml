@@ -9,12 +9,12 @@
         <VerticalStackLayout Padding="16" Spacing="12"
                              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-            <HorizontalStackLayout Spacing="12">
+            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
                 <Label Text="{Binding Emoji}"
                        FontSize="48"
                        VerticalOptions="Center" />
 
-                <VerticalStackLayout Spacing="2" VerticalOptions="Center">
+                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
                     <Label Text="{Binding Title}"
                            FontSize="22"
                            FontAttributes="Bold"
@@ -24,7 +24,13 @@
                            FontSize="14"
                            TextColor="{DynamicResource SecondaryTextColor}" />
                 </VerticalStackLayout>
-            </HorizontalStackLayout>
+
+                <Button Grid.Column="2"
+                        x:Name="FavButton"
+                        Text="☆"
+                        FontSize="26"
+                        Clicked="OnFavClicked" />
+            </Grid>
 
             <Border Padding="12"
                     BackgroundColor="{DynamicResource CardBackgroundColor}"
